@@ -19,6 +19,12 @@ namespace vendor_tracker.Controllers
             return View();
         }
 
-
+        [HttpPost("/vendors")]
+        public ActionResult Index(string name, string description)
+        {
+            Vendor.NewVendor(name, description);
+            List<Vendor> vendorList = Vendor.VendorList;
+            return View(vendorList);
+        }
     }
 }
