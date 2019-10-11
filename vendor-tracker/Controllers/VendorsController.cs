@@ -12,6 +12,13 @@ namespace vendor_tracker.Controllers
             List<Vendor> vendorList = Vendor.VendorList;
             return View(vendorList);
         }
+        
+        [HttpGet("/vendors/new")]
+        public ActionResult New()
+        {
+            return View();
+        }
+
 
     }
 }
