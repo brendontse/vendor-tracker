@@ -12,7 +12,7 @@ namespace vendor_tracker.Models
 
         public static List<Vendor> VendorList = new List<Vendor> { };
         public static int VendorNumber { get; set; }
-
+        
         public Vendor(string name, string description)
         {
             Name = name;
@@ -23,7 +23,24 @@ namespace vendor_tracker.Models
             VendorList.Add(this);
         }
         
+        public static void NewVendor(string name, string description)
+        {
+            if (name != null)
+            {
+                bool VendorCreated = false;
 
+                foreach(Vendor vendor in VendorList)
+                    if (vendor.Name == name)
+                    {
+                        VendorCreated = true;
+                        // return to user that a vendor with that name has already been created
+                    }
+                if (VendorCreated == false)
+                {
+                     Vendor vendor = new Vendor (name, description);
+                }
+            }
+        }
     }
 }
 
