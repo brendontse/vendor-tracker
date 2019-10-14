@@ -11,15 +11,18 @@
     </head>
     <body>
         <div class="container">
-            <h2>Create a new vendor:</h2>
+            <h2>Create a new oder:</h2>
                 
-            <form action="/vendors" method="post">
-                <label for="vendorName">Name:</label>
-                <input id="vendorName" name="vendorName" type="text">
+            <form action="/orders" method="post">
+                <label for="orderName">Name:</label>
+                <input id="orderName" name="vendorName" type="text">
 
-                <label for="vendorDescription">Description:</label>
-                <input id="vendorDescription" name="vendorDescription" type="text">
-                
+                <label for="orderDescription">Description:</label>
+                <input id="orderDescription" name="orderDescription" type="text">
+
+                <label for="orderPrice">Price:</label>
+                <input id="orderPrice" name="orderPrice" type="text">
+
                 <button type="submit">Add</button>
             </form>
 

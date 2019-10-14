@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using PastryTracker.Models;
+using vendor_tracker.Models;
 using System.Collections.Generic;
 
 namespace vendor_tracker.Controllers
@@ -10,7 +10,7 @@ namespace vendor_tracker.Controllers
         public ActionResult New()
         {
             return View();
-        }
+        } 
 
         [HttpPost("/orders")]
         public ActionResult Index()
@@ -19,3 +19,5 @@ namespace vendor_tracker.Controllers
         }   
     }
 }
+
+// how to have URL path be Order.Name?? 

@@ -1,0 +1,29 @@
+@using System.Collections.Generic;
+@using vendor_tracker.Models;
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Vendor Tracker</title>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+        <link href="~/css/styles.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div class="container">
+
+            <h2>Here are your current vendors:</h2>
+
+            @foreach (Vendor vendor in Model)
+            {
+            <a href="/vendors/@vendor.ID">@vendor.Name</a>
+            }
+
+            <p><a href='/'>Home</a></p>
+        </div>
+    </body>
+</html>
+
+
+
+<!-- what would if statement look like to check for empty list?  -->

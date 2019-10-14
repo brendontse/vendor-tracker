@@ -8,21 +8,21 @@ namespace vendor_tracker.Models
         public int ID { get; }
         public string Name {get; set;}
         public string Description {get; set;}
-        public float Cost {get; set;}
+        public float Price {get; set;}
         public bool CompletedOrder {get; set;}
         
         public static List<Order> OrderList = new List<Order> { };
         public static int OrderNumber { get; set;}
 
-        public Order(string name, string description, float cost)
+        public Order(string name, string description, float price)
         {
             Name = name;
             Description = description;
-            Cost = cost;
+            Price = price;
             OrderNumber++;
             ID = OrderNumber;
-            OrderList.Add(this);
             CompletedOrder = false;
+            OrderList.Add(this);
 
         }
     }
