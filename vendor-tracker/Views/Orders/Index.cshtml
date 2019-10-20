@@ -12,24 +12,23 @@
     <body>
         <div class="container">
             
-            <h2>Here are the current orders for this vendor:</h2>
+            @if (@Model.Count == 0)
+            {
+                <h3>No orders have been added for this vendor!</h3>
+            }
+
+            
 
             <ul>
             @foreach (Order order in Model)
             {
+                <h2>Here are the current orders for this vendor:</h2>
                 <li><a href='/orders/@order.ID'>@order.Name</a></li>
             }
             </ul>
 
+            <p><a href="/orders/new">Add a new order.</a></p>
             <p><a href='/'>Home</a></p>
         </div>
     </body>
 </html>
-
-
-
-
-
-
-
-<!-- what would if statement look like to check for no orders?  -->

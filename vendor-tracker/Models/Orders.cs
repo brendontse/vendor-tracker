@@ -25,5 +25,10 @@ namespace vendor_tracker.Models
             OrderList.Add(this);
 
         }
+
+        public static Order FindOrder(int searchId)
+        {
+            return OrderList[searchId-1];
+        }
     }
 }

@@ -6,6 +6,13 @@ namespace vendor_tracker.Controllers
 {
     public class OrdersController : Controller
     {
+
+        [HttpGet("/orders")]
+        public ActionResult Index()
+        {
+            return View(Order.OrderList);
+        }
+
         [HttpGet("/orders/new")]
         public ActionResult New()
         {
@@ -13,11 +20,17 @@ namespace vendor_tracker.Controllers
         } 
 
         [HttpPost("/orders")]
-        public ActionResult Index()
+        public ActionResult Create(string name, string description, int price)
         {
-            return View();
-        }   
+            Order newOrder = new Order(name, description, price);
+            return RedirectToAction("Index");
+        } 
+
+        [HttpGet("/orders/{id}")]
+        public ActionResult Show(int id)
+        {
+            Order foundOrder = Order.FindOrder(id);
+            return View(foundOrder);
+        }
     }
 }
-
-// how to have URL path be Order.Name?? 

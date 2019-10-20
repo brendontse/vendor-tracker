@@ -9,7 +9,7 @@ namespace vendor_tracker.Controllers
         [HttpGet("/vendors")]
         public ActionResult Index()
         {
-            List<Vendor> vendorList = Vendor.VendorList;
+            List<Vendor> vendorList = Vendor.GetVendors();
             return View(vendorList);
         }
         
@@ -20,11 +20,21 @@ namespace vendor_tracker.Controllers
         }
 
         [HttpPost("/vendors")]
-        public ActionResult Index(string name, string description)
+        public ActionResult Create(string name, string description)
         {
-            Vendor.NewVendor(name, description);
-            List<Vendor> vendorList = Vendor.VendorList;
-            return View(vendorList);
+            Vendor newVendor = new Vendor(name, description);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet("/vendors/{id}")]
+        public ActionResult Show (int id)
+        {
+            Dictionary<string, object> model = new Dictionary<string, object>();
+            Vendor selectedVendor = Vendor.FindVendor(id);
+            List<Order> vendorOrders = selectedVendor.VendorOrders;
+            model.Add("vendor", selectedVendor);
+            model.Add("orders", vendorOrders);
+            return View(model);
         }
     }
 }
